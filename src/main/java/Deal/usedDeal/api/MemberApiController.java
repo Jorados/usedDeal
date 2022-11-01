@@ -31,6 +31,7 @@ public class MemberApiController {
 
         Long id = memberService.join(member);
         return new CreateMemberResponse(id, member.getName(),member.getAddress());
+
     }
 
     //유저 조회
