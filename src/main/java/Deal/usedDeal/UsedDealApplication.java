@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class UsedDealApplication {
 
-	//깃헙 클론프로젝트에서 테스트
 	public static void main(String[] args) {
 		SpringApplication.run(UsedDealApplication.class, args);
 	}
