@@ -9,10 +9,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class UsedDealApplication {
 
-	////최종최종테스트햐
-	//git test test
-	//코드 새로 씀씀씀
-	//코듣 새로 씀ㅆ므씀씀222햐
 	public static void main(String[] args) {
 		SpringApplication.run(UsedDealApplication.class, args);
 	}
@@ -24,5 +20,5 @@ public class UsedDealApplication {
 		hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
 		return hibernate5Module;
 	}
-
+//asdasd
 }
