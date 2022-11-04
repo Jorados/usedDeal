@@ -11,6 +11,7 @@ public class UsedDealApplication {
 
 	//git test test
 	//코드 새로 씀씀씀
+	//코듣 새로 씀ㅆ므씀씀222햐
 	public static void main(String[] args) {
 		SpringApplication.run(UsedDealApplication.class, args);
 	}
