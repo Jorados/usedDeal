@@ -4,11 +4,13 @@ import Deal.usedDeal.FailedLoginEx;
 import Deal.usedDeal.domain.Member;
 import Deal.usedDeal.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.security.auth.login.FailedLoginException;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class LoginService {
 
