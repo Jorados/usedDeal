@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class UsedDealApplication {
 
+	//git test test
 	public static void main(String[] args) {
 		SpringApplication.run(UsedDealApplication.class, args);
 	}
