@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Bean;
 public class UsedDealApplication {
 
 	//git test test
+	//코드 새로 씀씀씀
 	public static void main(String[] args) {
 		SpringApplication.run(UsedDealApplication.class, args);
 	}
