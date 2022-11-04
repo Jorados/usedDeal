@@ -21,5 +21,5 @@ public class UsedDealApplication {
 		hibernate5Module.configure(Hibernate5Module.Feature.FORCE_LAZY_LOADING, true);
 		return hibernate5Module;
 	}
-
+//asdasd
 }
