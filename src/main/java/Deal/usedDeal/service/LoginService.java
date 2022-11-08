@@ -13,8 +13,6 @@ import javax.security.auth.login.FailedLoginException;
 @Slf4j
 @RequiredArgsConstructor
 public class LoginService {
-
-    //yytttttt
     private final MemberRepository memberRepository;
 
     public Member login(String loginId,String password){
