@@ -32,6 +32,8 @@ public class InitDb {
             Member member = new Member();
             member.setName("성진");
             member.setAddress(new Address("진주","1","111-111"));
+            member.setLoginId("seongjin8860");
+            member.setPassword("password");
             em.persist(member);
 
             Book book1 = new Book();
@@ -60,6 +62,8 @@ public class InitDb {
             Member member = new Member();
             member.setName("userB");
             member.setAddress(new Address("진주","2","222-222"));
+            member.setLoginId("seongjin8862");
+            member.setPassword("password2");
             em.persist(member);
 
             Book book1 = new Book();

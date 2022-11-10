@@ -13,18 +13,12 @@ import javax.security.auth.login.FailedLoginException;
 @Slf4j
 @RequiredArgsConstructor
 public class LoginService {
-
-    //yytttttt
     private final MemberRepository memberRepository;
-
     public Member login(String loginId,String password){
-
         Member findMember = memberRepository.findByLoginId(loginId);
-
         if(findMember == null){
             throw new FailedLoginEx("존재하지 않는 아이디입니다.");
         }
-
         if(findMember.getPassword().equals(password)){
             return findMember;
         }else{
