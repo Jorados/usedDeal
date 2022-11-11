@@ -1,6 +1,7 @@
 package Deal.usedDeal.controller;
 
 
+import Deal.usedDeal.controller.form.MemberForm;
 import Deal.usedDeal.domain.Address;
 import Deal.usedDeal.domain.Member;
 import Deal.usedDeal.service.MemberService;

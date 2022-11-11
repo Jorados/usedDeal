@@ -1,4 +1,4 @@
-package Deal.usedDeal.controller;
+package Deal.usedDeal.controller.form;
 
 
 import lombok.Getter;
