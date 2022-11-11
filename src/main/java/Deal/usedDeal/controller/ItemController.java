@@ -27,25 +27,16 @@ public class ItemController {
 
 
     //item 조회
-    @GetMapping("/items")
+    @GetMapping("/items/new")
     public String createItemForm(Model model){
         List<Item> items = itemService.findItems();
         model.addAttribute("items",items);
-
         return "/items/createForm";
     }
 
-    @GetMapping("/items/add")
-    public String addForm(Model model) {
-        //로그인 여부 체크
-        model.addAttribute("item", new Book());
-        return "items/new";
-    }
-
-
     //item 등록
     @PostMapping("items/new")
-    public String createItem(@Valid @ModelAttribute("item") ItemForm form , BindingResult bindingResult, RedirectAttributes redirectAttributes){
+    public String createItem(@Valid @ModelAttribute("item") ItemForm form , BindingResult bindingResult){
 
         if(bindingResult.hasErrors()){
             log.info("errors={}",bindingResult);
@@ -55,23 +46,46 @@ public class ItemController {
         Book book = new Book();
         book.setName(form.getName());
         book.setPrice(form.getPrice());
-        book.setStockQuantity(form.getQuantity());
+        book.setStockQuantity(form.getStockQuantity());
+        book.setAuthor(form.getAuthor());
+        book.setIsbn(form.getIsbn());
         itemService.saveItem(book);
 
-        redirectAttributes.addAttribute("itemId",book.getId());
-
-        return "redirect:items/{itemId}/";
+        return "redirect:/";
     }
 
-    //item 번호 클릭
-    @GetMapping("/{itemId}")
-    public String ClickItem(@PathVariable("itemId") long itemId,Model model){
+
+    @GetMapping("/items")
+    public String addForm(Model model) {
+        List<Item> items = itemService.findItems();
+        //로그인 여부 체크
+        model.addAttribute("items", items);
+        return "items/itemList";
+    }
+
+    @GetMapping("/items/{itemId}/edit")
+    public String editItemForm(@PathVariable Long itemId,Model model){
 
         Item findItem = itemService.findOne(itemId);
-        model.addAttribute("item",findItem);
 
-        return "items/item";
+        ItemForm item = new ItemForm();
+        item.setName(findItem.getName());
+        item.setPrice(findItem.getPrice());
+        item.setStockQuantity(findItem.getStockQuantity());
+        item.setAuthor(findItem.getAuthor());
+        item.setIsbn(findItem.getIsbn());
+
+        model.addAttribute("item",item);
+        return "items/updateItemForm";
     }
 
+    @PostMapping("/items/{itemId}/edit")
+    public String editItem(@PathVariable Long itemId ,@Valid @ModelAttribute("item") ItemForm form,BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            bindingResult.reject("바인딩 에러 발생");
+        }
+        itemService.updateItem(itemId,form.getName(),form.getPrice(),form.getStockQuantity());
+        return "redirect:/items";
+    }
 
 }

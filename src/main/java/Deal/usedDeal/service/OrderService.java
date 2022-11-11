@@ -9,10 +9,12 @@ import Deal.usedDeal.domain.item.Item;
 import Deal.usedDeal.repository.ItemRepository;
 import Deal.usedDeal.repository.MemberRepository;
 import Deal.usedDeal.repository.OrderRepository;
+import Deal.usedDeal.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @Service
@@ -48,5 +50,9 @@ public class OrderService {
     public void cancelOrder(Long orderId){
         Order order = orderRepository.findOne(orderId);
         order.cancel();
+    }
+
+    public List<Order> findOrders(OrderSearch orderSearch) {
+        return orderRepository.findAllByString(orderSearch);
     }
 }

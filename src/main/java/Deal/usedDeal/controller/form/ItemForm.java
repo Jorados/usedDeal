@@ -16,5 +16,8 @@ public class ItemForm {
     private Integer price;
 
     @NotNull
-    private Integer quantity;
+    private Integer stockQuantity;
+
+    private String author;
+    private String isbn;
 }
